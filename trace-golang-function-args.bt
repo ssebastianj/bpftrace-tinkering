@@ -1,0 +1,6 @@
+#!/usr/bin/env bpftrace
+
+'uprobe:./traceme:github.com/ssebastianj/traceme/hello.Add {
+    time("%H:%M:%S  ");
+    printf("Add %d %d\n", reg("ax"), reg("bx"));
+}'
