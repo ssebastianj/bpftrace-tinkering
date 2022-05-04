@@ -1,6 +1,6 @@
 #!/usr/bin/env bpftrace
 
-'uretprobe:libpython3.10.so.1.0:builtin_abs {
+uretprobe:libpython3.10.so.1.0:builtin_abs {
     time("%H:%M:%S  ");
     printf("%-6d %d\n", pid, retval);
-}'
+}

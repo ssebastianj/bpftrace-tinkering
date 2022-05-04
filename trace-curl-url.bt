@@ -1,6 +1,6 @@
 #!/usr/bin/env bpftrace
 
-bpftrace -e 'uprobe:/usr/lib/x86_64-linux-gnu/libcurl.so.*.*.*:curl_easy_setopt / arg1 == 10002 / {
+uprobe:/usr/lib/x86_64-linux-gnu/libcurl.so.*.*.*:curl_easy_setopt / arg1 == 10002 / {
     time("%H:%M:%S  ");
     printf("%-6d %-6s %s\n", pid, comm, str(arg2));
-}'
+}
